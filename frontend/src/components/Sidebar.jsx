@@ -48,7 +48,7 @@ const Sidebar = () => {
             to={item.path}
             end={item.path === '/dashboard'}
             className={({ isActive }) =>
-              `flex flex-col md:flex-row items-center justify-center px-2 py-1 md:px-4 md:py-3 text-[10px] md:text-sm font-medium rounded-xl transition-all ${
+              `flex flex-col md:flex-row items-center justify-center md:justify-start px-2 py-1 md:px-4 md:py-3 text-[10px] md:text-sm font-medium rounded-xl transition-all ${
                 isActive
                   ? 'bg-indigo-50 text-indigo-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
