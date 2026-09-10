@@ -15,7 +15,10 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS
-app.use(cors());
+app.use(cors({
+  origin: ['https://pg-complaint-management.vercel.app', 'http://localhost:5173'],
+  credentials: true
+}));
 
 // Mount routers
 app.use('/api/auth', require('./routes/auth.routes'));
