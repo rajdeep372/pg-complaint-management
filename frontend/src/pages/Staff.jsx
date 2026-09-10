@@ -36,11 +36,11 @@ const Staff = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h2 className="text-2xl font-bold text-gray-900">Staff (Editors)</h2>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors"
+          className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors w-full sm:w-auto justify-center"
         >
           <UserPlus className="w-5 h-5 mr-2" />
           Invite Editor
@@ -65,33 +65,35 @@ const Staff = () => {
       )}
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-gray-50 border-b border-gray-100">
-              <th className="px-6 py-4 font-semibold text-gray-600">Name</th>
-              <th className="px-6 py-4 font-semibold text-gray-600">Email</th>
-              <th className="px-6 py-4 font-semibold text-gray-600">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {staff.map(s => (
-              <tr key={s._id} className="border-b border-gray-50 hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium text-gray-900">{s.name}</td>
-                <td className="px-6 py-4 text-gray-600">{s.email}</td>
-                <td className="px-6 py-4">
-                  <span className={`px-2 py-1 text-xs rounded-full font-medium ${s.inviteStatus === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'}`}>
-                    {s.inviteStatus}
-                  </span>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse whitespace-nowrap">
+            <thead>
+              <tr className="bg-gray-50 border-b border-gray-100">
+                <th className="px-6 py-4 font-semibold text-gray-600">Name</th>
+                <th className="px-6 py-4 font-semibold text-gray-600">Email</th>
+                <th className="px-6 py-4 font-semibold text-gray-600">Status</th>
               </tr>
-            ))}
-            {staff.length === 0 && (
-              <tr>
-                <td colSpan="3" className="px-6 py-8 text-center text-gray-500">No staff invited yet.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {staff.map(s => (
+                <tr key={s._id} className="border-b border-gray-50 hover:bg-gray-50">
+                  <td className="px-6 py-4 font-medium text-gray-900">{s.name}</td>
+                  <td className="px-6 py-4 text-gray-600">{s.email}</td>
+                  <td className="px-6 py-4">
+                    <span className={`px-2 py-1 text-xs rounded-full font-medium ${s.inviteStatus === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'}`}>
+                      {s.inviteStatus}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+              {staff.length === 0 && (
+                <tr>
+                  <td colSpan="3" className="px-6 py-8 text-center text-gray-500">No staff invited yet.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

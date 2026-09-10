@@ -19,8 +19,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 p-4">
-      <div className="max-w-md w-full glass rounded-3xl p-8 transform transition-all hover:scale-[1.01]">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-center justify-center p-4">
+      <div className="bg-white p-6 md:p-8 rounded-3xl shadow-xl max-w-md w-full mx-auto border border-gray-100">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">Welcome Back</h2>
           <p className="text-sm text-gray-500 mt-2">Sign in to your PG Management account</p>
